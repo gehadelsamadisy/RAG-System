@@ -1,0 +1,64 @@
+question_number,question,answer
+1,What are the main components of a CNN?,"The main components of a Convolutional Neural Network (CNN) mentioned in the context are:
+
+1. Convolutional Layers: These layers apply learnable filters to input data to detect features like edges, textures, and patterns. Each filter slides across the input performing element-wise multiplication and summation, with the key advantage being parameter sharing, which reduces the number of parameters compared to fully connected layers."
+2,Which CNN architecture introduced skip connections?,ResNet (2015) introduced skip connections (residual connections) that allow gradients to flow directly through the network.
+3,What is the purpose of pooling layers?,"The purpose of pooling layers is to reduce spatial dimensions through operations like max pooling or average pooling. This reduces computational cost and provides translation invariance, making the network robust to small shifts in input position."
+4,What activation function is commonly used in CNNs?,"ReLU (Rectified Linear Unit) is the most common activation function used in CNNs. It introduces non-linearity by outputting max(0, x) and helps prevent vanishing gradients and is computationally efficient."
+5,How many parameters does AlexNet have?,"According to the context, AlexNet has about 60 million parameters."
+6,What is the difference between max pooling and average pooling?,"According to the provided context, the difference between max pooling and average pooling lies in the way they calculate the output value for each region.
+
+Max pooling takes the maximum value in each region, while average pooling computes the mean (average) of the values in each region.
+
+This difference affects the characteristics of the output, with max pooling providing translation invariance and reducing the computational cost, whereas average pooling may preserve more information about the input values."
+7,How does batch normalization improve CNN training?,"Batch normalization improves CNN training by stabilizing the training process, allowing for higher learning rates, and acting as a regularizer. It normalizes the inputs of each layer to have zero mean and unit variance, which helps to:
+
+1. Stabilize training: By reducing the internal covariate shift, batch normalization helps to prevent the distribution of activations from changing during training, making the training process more stable.
+2. Allow higher learning rates: Batch normalization enables the use of higher learning rates, which can speed up the training process and improve convergence.
+3. Act as a regularizer: By reducing the effect of internal covariate shift, batch normalization can help to prevent overfitting and improve the generalization of the model.
+
+Overall, batch normalization is a crucial component of modern CNN architectures, and its benefits have been widely observed in various computer vision tasks."
+8,What are the advantages of using convolutional layers?,"The key advantage of using convolutional layers is parameter sharing, which dramatically reduces the number of parameters compared to fully connected layers. This is achieved by applying learnable filters to input data to detect features like edges, textures, and patterns, and then sliding these filters across the input to perform element-wise multiplication and summation."
+9,Explain the concept of receptive fields in CNNs.,"In the context of Convolutional Neural Networks (CNNs), the concept of receptive fields refers to the region of the input data (usually an image) that a neuron in a convolutional layer can ""see"" or process. The receptive field of a neuron is determined by the size of the convolutional kernel (also known as the filter) used in the convolution operation.
+
+Think of the receptive field as a window that slides over the input data, applying the kernel to a small region of the data at a time. The size of the receptive field depends on the size of the kernel and the stride used in the convolution operation. A larger kernel size or a smaller stride will result in a larger receptive field, allowing the neuron to process a larger region of the input data.
+
+The receptive field is an important concept in CNNs because it determines the spatial extent of the information that a neuron can process. A neuron with a larger receptive field can capture more complex patterns and features in the input data, while a neuron with a smaller receptive field is limited to processing smaller, more local features.
+
+For example, in an image classification task, a neuron with a large receptive field might be able to detect a cat's face, while a neuron with a small receptive field might only be able to detect a single whisker. The receptive field is a key factor in determining the spatial invariance of a CNN, which is the ability of the network to recognize objects or patterns regardless of their position in the input data.
+
+In summary, the receptive field is a fundamental concept in CNNs that determines the region of the input data that a neuron can process, and it plays a crucial role in the spatial invariance and feature extraction capabilities of the network."
+10,What is data augmentation and why is it important for CNNs?,"Data augmentation is a technique used to create variations of training images through methods such as rotation, flipping, scaling, and others. This process stabilizes the training of Convolutional Neural Networks (CNNs), allows for higher learning rates, and acts as a regularizer.
+
+In simpler terms, data augmentation helps prevent overfitting by increasing the size and diversity of the training dataset, which in turn improves the model's ability to generalize and perform well on unseen data."
+11,How does dropout prevent overfitting in neural networks?,"Dropout is a regularization technique used in neural networks to prevent overfitting. It works by randomly deactivating (or ""dropping out"") a fraction of neurons during training, with a probability typically set to 0.5. This means that for a given layer, some neurons will be excluded from the forward pass and the backward pass, effectively making the network more robust and less dependent on any single neuron.
+
+By randomly dropping out neurons, dropout prevents the network from relying too heavily on any one neuron or set of neurons, which can lead to overfitting. Overfitting occurs when a network is too complex and fits the training data too closely, but fails to generalize well to new, unseen data.
+
+When a neuron is dropped out, its weights are not updated during backpropagation, which helps to prevent the network from overfitting to the training data. This process is repeated for each training example, and the network is trained to learn the underlying patterns in the data without relying on any single neuron.
+
+In the context of the provided context, dropout is mentioned as one of the regularization techniques used in AlexNet, which was introduced in 2012 and is known for its use of dropout for regularization."
+12,What is transfer learning and when should it be used?,"Transfer learning is a technique used in machine learning where a pre-trained model is used as a starting point for a new, but related task. In the context of Convolutional Neural Networks (CNNs), transfer learning involves using a pre-trained model on a large dataset, such as ImageNet, and fine-tuning it on a smaller dataset for a specific task.
+
+Transfer learning should be used when:
+
+1. **Data is limited**: When the amount of labeled training data is limited, transfer learning can help by leveraging the knowledge learned from a larger dataset.
+2. **Similar tasks**: When the new task is similar to the task the pre-trained model was trained on, transfer learning can be effective.
+3. **Domain adaptation**: When the new task is in a different domain, but the underlying patterns are similar, transfer learning can help adapt the model to the new domain.
+
+In the context of the provided text, transfer learning is mentioned as a way to help when data is limited, by using pre-trained models on ImageNet."
+13,Describe the architecture of VGG networks.,"The architecture of VGG networks is simple and easy to understand, making it popular for transfer learning. VGG networks demonstrated that depth improves performance. They use uniform 3×3 convolutions throughout the network. This means that the network consists of multiple layers of convolutional layers, where each layer applies a 3×3 filter to the input data to detect features like edges, textures, and patterns. The key advantage of this architecture is parameter sharing, which dramatically reduces the number of parameters compared to fully connected networks."
+14,What are residual connections and why are they important?,"Residual connections, also known as skip connections, are a type of connection in neural networks that allow the input to a layer to be added to the output of that layer. This is typically done by concatenating the input and output, or by adding the input and output element-wise.
+
+Residual connections are important because they help to solve the vanishing gradient problem, which occurs when the gradients of the loss function with respect to the parameters of the network become very small as the network gets deeper. This makes it difficult for the network to learn and update its parameters.
+
+By adding the input to the output of a layer, residual connections allow the gradients to flow directly through the network, rather than being attenuated by the layer's weights. This helps to preserve the gradients and allows the network to learn more effectively.
+
+Residual connections were first introduced in the ResNet (2015) architecture, which used them to great success in image classification tasks. They have since become a popular technique in many deep learning architectures, and have been shown to improve the performance and stability of neural networks."
+15,How do 1x1 convolutions reduce computational complexity?,"In the context of the provided information, 1x1 convolutions are mentioned as part of the inception modules in GoogleNet/Inception (2014). 
+
+1x1 convolutions, also known as depthwise separable convolutions, reduce computational complexity by separating the spatial and channel dimensions of the convolution operation. 
+
+In a regular convolution, a 3x3 filter is applied to each pixel in the input image, resulting in a large number of computations. However, in a 1x1 convolution, the filter is applied only to the channel dimension, reducing the number of computations required. This is because the 1x1 filter only needs to compute the output for each channel, rather than for each pixel in the input image.
+
+By using 1x1 convolutions, the computational complexity of the network is reduced, making it more efficient and faster to train. This is particularly useful in deep neural networks where the number of parameters and computations can become very large."
